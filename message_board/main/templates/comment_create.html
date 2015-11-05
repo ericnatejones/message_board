@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block body%}
+
+<form method="POST" action="/comment_create/{{pk}}/">  
+    {% csrf_token %}
+    comment
+    <br>
+    {{ form.comment }}
+    <br>
+    your name
+    {{ form.comment_maker }}
+    <span style='display:none'>{{ form.message }}</span>
+
+
+
+    <input type="submit" value="Save" />
+
+</form>
+</br>  
+</br>
+
+{{ valid }}
+{%endblock body%}

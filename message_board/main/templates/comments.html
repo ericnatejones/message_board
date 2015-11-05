@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{%block body%}
+<div class='container'>
+	{% for comment in comments %}
+		<div class='row' style="border:1px solid #000000">
+			<p>{{ comment.comment }}</p>
+			
+			<h6>{{ comment.comment_maker }}</h6>
+			<a href='/delete_comment/{{comment.id}}/'>Delete</a>
+
+		</div>
+	{% endfor %}
+	<button class='btn btn-success'>
+		<a href='/comment_create/{{pk}}'>
+			New Comment
+		</a>
+	</button>
+
+	<br>
+</div>	
+{%endblock body%}

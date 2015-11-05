@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+<a href="/message_create/"><button class='btn btn-success'>New Message</button></a>
+
+<div class='container'>
+	{% for message in object_list reversed %}
+	<div class='row' style="border:3px solid #000000">
+
+		<h3>{{message.title}}</h3>
+		{{message.message_maker}}
+		<p class='col-xs-10 col-xs-offset-1' style="border:1px solid #000000">{{message.message}}</p>
+		<div class='col-xs-12 '>
+			<a href='/comments/{{message.id}}'>comments</a>
+			<br>
+			{%for comment in message.comment_set.all %}
+				<h6>{{comment}}</h6>
+			{%endfor%}	
+			<a href='/delete_message/{{message.id}}/'><button>Delete</button></a>
+		</div>	
+	</div>	
+	{% endfor %}
+</div>	
+{% endblock %}
